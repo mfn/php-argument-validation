@@ -1,0 +1,40 @@
+{
+  "name": "mfn/argument-validation",
+  "description": "Validate arguments against a list of parameters",
+  "type": "library",
+  "keywords": [
+    "argument",
+    "docblock",
+    "parameter",
+    "parser",
+    "phpdoc",
+    "type",
+    "validation",
+    "validator"
+  ],
+  "homepage": "http://github.com/mfn/php-argument-validation",
+  "authors": [
+    {
+      "name": "Markus Fischer",
+      "email": "markus@fischer.name",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/mfn/php-argument-validation/issues"
+  },
+  "license": "MIT",
+  "require": {
+    "php": ">=5.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mfn\\ArgumentValidation\\": "src/",
+      "Mfn\\ArgumentValidation\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.0",
+    "phing/phing": "^2.12"
+  }
+}
