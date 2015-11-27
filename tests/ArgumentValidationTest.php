@@ -56,7 +56,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['name' => 1,];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'string\': Expected string but integer received',
+            'Argument $name does not match type \'string\': Expected string but integer received',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
@@ -64,7 +64,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['name' => [],];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'string\': Expected string but array received',
+            'Argument $name does not match type \'string\': Expected string but array received',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
@@ -72,7 +72,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['name' => new \stdClass(),];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'string\': Expected string but object<stdClass> received',
+            'Argument $name does not match type \'string\': Expected string but object<stdClass> received',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -89,7 +89,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['name' => 'string',];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'integer\': Expected integer but string received',
+            'Argument $name does not match type \'integer\': Expected integer but string received',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
@@ -97,7 +97,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['name' => [],];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'integer\': Expected integer but array received',
+            'Argument $name does not match type \'integer\': Expected integer but array received',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
@@ -105,7 +105,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['name' => new \stdClass(),];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'integer\': Expected integer but object<stdClass> received',
+            'Argument $name does not match type \'integer\': Expected integer but object<stdClass> received',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -122,7 +122,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['name' => 'string',];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'int\': Expected integer but string received',
+            'Argument $name does not match type \'int\': Expected integer but string received',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
@@ -130,7 +130,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['name' => [],];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'int\': Expected integer but array received',
+            'Argument $name does not match type \'int\': Expected integer but array received',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
@@ -138,7 +138,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['name' => new \stdClass(),];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'int\': Expected integer but object<stdClass> received',
+            'Argument $name does not match type \'int\': Expected integer but object<stdClass> received',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -163,7 +163,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['data' => 'string',];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $data does match type \'array\': Expected array but string received',
+            'Argument $data does not match type \'array\': Expected array but string received',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
@@ -171,7 +171,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['data' => 1,];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $data does match type \'array\': Expected array but integer received',
+            'Argument $data does not match type \'array\': Expected array but integer received',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
@@ -179,7 +179,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['data' => true,];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $data does match type \'array\': Expected array but boolean received',
+            'Argument $data does not match type \'array\': Expected array but boolean received',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
@@ -187,7 +187,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['data' => new \stdClass(),];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $data does match type \'array\': Expected array but object<stdClass> received',
+            'Argument $data does not match type \'array\': Expected array but object<stdClass> received',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -218,7 +218,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['data' => [1],];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $data does match type \'array<string>\': Error in value at key #0 (\'0\'): Expected string but integer received',
+            'Argument $data does not match type \'array<string>\': Error in value at key #0 (\'0\'): Expected string but integer received',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -249,7 +249,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['data' => [1],];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $data does match type \'array<string>\': Error in value at key #0 (\'0\'): Expected string but integer received',
+            'Argument $data does not match type \'array<string>\': Error in value at key #0 (\'0\'): Expected string but integer received',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -289,7 +289,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['data' => ['string'],];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $data does match type \'array<string,integer>\': Error in key #0: Expected string but integer received',
+            'Argument $data does not match type \'array<string,integer>\': Error in key #0: Expected string but integer received',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -395,14 +395,14 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['param' => 1];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $param does match type \'stdClass\': Expected instance of stdClass but received integer',
+            'Argument $param does not match type \'stdClass\': Expected instance of stdClass but received integer',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
         $arguments = ['param' => new \DateTime()];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $param does match type \'stdClass\': DateTime not an instance of stdClass',
+            'Argument $param does not match type \'stdClass\': DateTime not an instance of stdClass',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -414,7 +414,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['param' => 1];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $param does match type \'someRandomType\': Expected instance of someRandomType but received integer',
+            'Argument $param does not match type \'someRandomType\': Expected instance of someRandomType but received integer',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -427,7 +427,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['name' => 'string',];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'number\': Expected number (float or integer) but string received',
+            'Argument $name does not match type \'number\': Expected number (float or integer) but string received',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
@@ -444,14 +444,14 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['name' => [],];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'number\': Expected number (float or integer) but array received',
+            'Argument $name does not match type \'number\': Expected number (float or integer) but array received',
         ];
         $this->assertEquals($expetedErrors, $errors);
 
         $arguments = ['name' => new \stdClass(),];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $name does match type \'number\': Expected number (float or integer) but object<stdClass> received',
+            'Argument $name does not match type \'number\': Expected number (float or integer) but object<stdClass> received',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -474,7 +474,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['file' => fopen(__FILE__, 'r')];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $file does match type \'resource<string>\': Expected resource of type string but stream received',
+            'Argument $file does not match type \'resource<string>\': Expected resource of type string but stream received',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -506,7 +506,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['file' => fopen(__FILE__, 'r')];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'Argument $file does match type \'resource<randomtype>\': Expected resource of type randomtype but stream received',
+            'Argument $file does not match type \'resource<randomtype>\': Expected resource of type randomtype but stream received',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }

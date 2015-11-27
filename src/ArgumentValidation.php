@@ -248,7 +248,7 @@ class ArgumentValidation implements ArgumentValidationInterface, TypeValidatorIn
                     $this->validateTypeDescriptor($typeDescriptor, $value);
                 } catch (TypeError $e) {
                     $errorsForThisParam[] =
-                        'Argument $' . $name . " does match type '$typeDescriptor': " . $e->getMessage();
+                        'Argument $' . $name . " does not match type '$typeDescriptor': " . $e->getMessage();
                 }
             }
 

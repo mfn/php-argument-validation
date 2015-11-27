@@ -82,7 +82,7 @@ This script will output:
 ```
 array(1) {
   [0]=>
-  string(86) "Argument $isCool does match type 'bool': Expected instance of bool but received string"
+  string(86) "Argument $isCool does not match type 'bool': Expected instance of bool but received string"
 }
 ```
 
