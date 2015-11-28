@@ -28,8 +28,8 @@
 
 use Mfn\ArgumentValidation\Exceptions\ArgumentValidationException;
 use Mfn\ArgumentValidation\Exceptions\TypeError;
-use Mfn\ArgumentValidation\Interfaces\ParameterInterface;
 use Mfn\ArgumentValidation\Interfaces\ArgumentValidationInterface;
+use Mfn\ArgumentValidation\Interfaces\ParameterInterface;
 use Mfn\ArgumentValidation\Interfaces\TypeDescriptionParserInterface;
 use Mfn\ArgumentValidation\Interfaces\TypeInterface;
 use Mfn\ArgumentValidation\Interfaces\TypeValidatorInterface;
@@ -68,6 +68,8 @@ use Mfn\ArgumentValidation\Types\Scalar\StringType;
  */
 class ArgumentValidation implements ArgumentValidationInterface, TypeValidatorInterface
 {
+    use PhpTypeDescriptionTrait;
+
     /**
      * @var string
      */
@@ -195,13 +197,15 @@ class ArgumentValidation implements ArgumentValidationInterface, TypeValidatorIn
             },
             $parameters
         );
-        $names = array_keys($arguments);
+        $argumentNames = array_keys($arguments);
 
-        $tooMany = array_diff($names, $parameterNames);
+        $tooMany = array_diff($argumentNames, $parameterNames);
         if (!empty($tooMany)) {
-            foreach ($tooMany as $name) {
+            foreach ($tooMany as $argumentName) {
                 $errors[] =
-                    'No parameter definition for argument $' . $name;
+                    'No parameter definition for argument $' . $argumentName .
+                    ' of type ' . $this->getPhpTypeDescription($arguments[$argumentName]);
+
             }
         }
 

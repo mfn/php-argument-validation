@@ -378,7 +378,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['foo' => 'bar'];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'No parameter definition for argument $foo',
+            'No parameter definition for argument $foo of type string',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }
@@ -534,7 +534,7 @@ class ArgumentValidationTest extends \PHPUnit_Framework_TestCase
         $arguments = ['foo' => 'bar'];
         $errors = $this->validator->validate($parameters, $arguments);
         $expetedErrors = [
-            'No parameter definition for argument $foo',
+            'No parameter definition for argument $foo of type string',
         ];
         $this->assertEquals($expetedErrors, $errors);
     }

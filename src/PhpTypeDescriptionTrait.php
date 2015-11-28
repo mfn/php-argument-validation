@@ -1,4 +1,4 @@
-<?php namespace Mfn\ArgumentValidation\Types;
+<?php namespace Mfn\ArgumentValidation;
 
 /*
  * This file is part of https://github.com/mfn/php-argument-validation
@@ -26,20 +26,25 @@
  * THE SOFTWARE.
  */
 
-use Mfn\ArgumentValidation\Interfaces\TypeInterface;
-use Mfn\ArgumentValidation\PhpTypeDescriptionTrait;
-
-abstract class AbstractType implements TypeInterface
+trait PhpTypeDescriptionTrait
 {
-    use PhpTypeDescriptionTrait;
-
     /**
-     * For convenience. The majority of types won't have aliases.
+     * Helper to get a useful description with details from scalar types as
+     * well as resources and objects.
      *
-     * @return string[]
+     * @param mixed $mixed
+     * @return string
      */
-    public function getAliases()
+    protected function getPhpTypeDescription($mixed)
     {
-        return [];
+        if (is_resource($mixed)) {
+            return 'resource<' . get_resource_type($mixed) . '>';
+        }
+
+        if (is_object($mixed)) {
+            return 'object<' . get_class($mixed) . '>';
+        }
+
+        return gettype($mixed);
     }
 }
