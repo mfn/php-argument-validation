@@ -138,6 +138,7 @@ class ArgumentValidation implements ArgumentValidationInterface, TypeValidatorIn
             ->registerType(new ObjectType())
             ->registerType(new ResourceType())
             ->registerType(new StringType());
+
         return $this;
     }
 
@@ -341,6 +342,7 @@ class ArgumentValidation implements ArgumentValidationInterface, TypeValidatorIn
 
             $tmp[$parameter->getName()] = $parameter;
         }
+
         return $tmp;
     }
 

@@ -70,6 +70,7 @@ class TypeDescriptionParser implements TypeDescriptionParserInterface
             },
             $splits
         );
+
         return $types;
     }
 
@@ -84,6 +85,7 @@ class TypeDescriptionParser implements TypeDescriptionParserInterface
                 "Unable to extract outer most type from '$this->typeDescription'"
             );
         }
+
         return new static($m[1]);
     }
 
