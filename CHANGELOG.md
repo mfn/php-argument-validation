@@ -1,6 +1,6 @@
 # PHP Argument Validation CHANGELOG
 
-### 0.2 - TODO
+### 0.2 - 2015-11-28
 - fix typo in reported exception
 - add basic type description for unknown arguments
 
